@@ -1,56 +1,555 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Financial Freedom</title>
-<style>
-body {
-margin:0;
-font-family: Arial, sans-serif;
-background:#111;
-color:white;
-text-align:center;
-padding:60px 20px;
-}
-.container {
-max-width:500px;
-margin:auto;
-}
-input {
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:6px;
-border:none;
-}
-button {
-width:100%;
-padding:12px;
-border:none;
-border-radius:6px;
-background:#00c896;
-color:white;
-font-weight:bold;
-cursor:pointer;
-}
-button:hover {
-background:#00a37a;
-}
-</style>
-</head>
-<body>
-<div class="container">
-<h1>Unlock Your Financial Freedom</h1>
-<p>Discover the 4 Streams to Profit.</p>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Freedom - Get Your FREE Money-Making Guide</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --primary: #00ff88;
+        --primary-dark: #00cc6a;
+        --black: #0d0d0d;
+        --dark-gray: #1a1a1a;
+        --white: #ffffff;
+        --text-dark: #333333;
+        --text-light: #f0f0f0;
+      }
 
-<form name="contact" method="POST" data-netlify="true">
-<input type="hidden" name="form-name" value="contact">
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
-<button type="submit">Get Access</button>
-</form>
+      body {
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--white);
+        color: var(--text-dark);
+        max-width: 100%;
+      }
 
-</div>
-</body>
-  </html>
+      /* Override Pico CSS defaults for specific look */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 800;
+      }
+
+      /* Hero Section */
+      .hero {
+        background-color: var(--black);
+        color: var(--white);
+        padding: 80px 20px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        color: var(--white);
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+      }
+
+      .hero p.subtitle {
+        color: var(--primary);
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+      }
+
+      .hero .author {
+        color: #888;
+        font-size: 0.9rem;
+        margin-bottom: 3rem;
+        display: block;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .cta-box {
+        background-color: var(--dark-gray);
+        border: 2px solid var(--primary);
+        padding: 30px;
+        border-radius: 8px;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .cta-button {
+        background-color: var(--primary);
+        color: var(--black);
+        border: none;
+        width: 100%;
+        padding: 15px;
+        font-weight: 800;
+        font-size: 1.2rem;
+        border-radius: 4px;
+        cursor: pointer;
+        text-transform: uppercase;
+        margin-top: 15px;
+        transition:
+          transform 0.2s,
+          background-color 0.2s;
+      }
+
+      .cta-button:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        border: 1px solid #444;
+        background-color: #2a2a2a;
+        color: var(--white);
+      }
+
+      /* What's Inside Section */
+      .features {
+        padding: 60px 20px;
+        background-color: var(--white);
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+        color: var(--black);
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .feature-item {
+        padding: 10px;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .feature-icon {
+        margin-right: 10px;
+        color: var(--primary-dark);
+      }
+
+      /* Earnings Potential Section */
+      .earnings {
+        background-color: #f0fff8; /* Very light green */
+        padding: 60px 20px;
+        border-top: 5px solid var(--primary);
+        border-bottom: 5px solid var(--primary);
+      }
+
+      .earnings-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: var(--white);
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .earnings-list {
+        margin: 30px 0;
+      }
+
+      .earning-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .earning-total {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+        font-weight: 800;
+        font-size: 1.4rem;
+        color: var(--primary-dark);
+        border-top: 2px solid var(--black);
+        margin-top: 10px;
+      }
+
+      /* Benefits Section */
+      .benefits {
+        padding: 60px 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        text-align: center;
+      }
+
+      .benefit-card {
+        padding: 20px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+      }
+
+      .checkmark {
+        color: var(--primary-dark);
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      /* Testimonials */
+      .testimonials {
+        background-color: #f5f5f5;
+        padding: 60px 20px;
+      }
+
+      .testimonial-grid {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .testimonial-card {
+        background-color: var(--white);
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .stars {
+        color: #ffd700;
+        margin-bottom: 10px;
+      }
+
+      .quote {
+        font-style: italic;
+        margin-bottom: 15px;
+      }
+
+      .author-name {
+        font-weight: bold;
+        color: #555;
+      }
+
+      /* FAQ Section */
+      .faq {
+        padding: 60px 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
+      }
+
+      .faq-question {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        color: var(--black);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--black);
+        color: var(--white);
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .footer-brand {
+        color: var(--primary);
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .footer-links {
+        margin-top: 20px;
+        font-size: 0.8rem;
+        color: #666;
+      }
+
+      .footer-links a {
+        color: #666;
+        margin: 0 10px;
+        text-decoration: none;
+      }
+
+      /* Utility */
+      .text-green {
+        color: var(--primary);
+      }
+      .text-center {
+        text-align: center;
+      }
+      .mb-2 {
+        margin-bottom: 1rem;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+        .hero p.subtitle {
+          font-size: 1.2rem;
+        }
+        .earnings-container {
+          padding: 20px;
+        }
+        .earning-row {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Get Your FREE All-in-One<br /><span style="color: var(--primary)">Money-Making Guide</span></h1>
+        <p class="subtitle">100+ Legitimate Ways to Earn Real Money Online in 2026</p>
+        <span class="author">By Financial Freedom @financial.freedom996</span>
+
+        <div class="cta-box">
+          <p style="margin-bottom: 15px; font-weight: bold">Where should we send your free PDF?</p>
+
+          <!-- MAILERLITE FORM PLACEHOLDER 1 -->
+          <!-- Paste your MailerLite Embed Code Here -->
+          <form action="#" method="POST">
+            <input type="text" class="form-input" placeholder="Your First Name" required />
+            <input type="email" class="form-input" placeholder="Your Best Email Address" required />
+            <button type="submit" class="cta-button">DOWNLOAD YOUR FREE GUIDE</button>
+          </form>
+
+          <p style="font-size: 0.8rem; color: #888; margin-top: 10px">🔒 100% Secure. We respect your privacy.</p>
+        </div>
+
+        <div style="margin-top: 30px">
+          <p>✅ Updated for 2026 | ✅ Verified Legitimate | ✅ Beginner Friendly</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT'S INSIDE SECTION -->
+    <section class="features">
+      <h2 class="section-title">What You'll Discover in This Free Guide:</h2>
+
+      <div class="features-grid">
+        <div class="feature-item"><span class="feature-icon">✅</span> 20+ Survey Apps ($50-$150/month)</div>
+        <div class="feature-item"><span class="feature-icon">✅</span> 15+ Paid Game Apps (Get paid to play!)</div>
+        <div class="feature-item"><span class="feature-icon">✅</span> 15+ GPT Sites (Multiple ways to earn)</div>
+        <div class="feature-item"><span class="feature-icon">✅</span> 10+ User Testing Platforms ($200+ per test)</div>
+        <div class="feature-item"><span class="feature-icon">✅</span> 12+ Microtask & Data Entry Sites</div>
+        <div class="feature-item"><span class="feature-icon">✅</span> 10+ Watch Videos Apps (Earn passively)</div>
+        <div class="feature-item"><span class="feature-icon">✅</span> 12+ Cashback & Receipt Apps</div>
+        <div class="feature-item">
+          <span class="feature-icon">✅</span> 8+ Passive Income Apps (Earn while you sleep!)
+        </div>
+        <div class="feature-item"><span class="feature-icon">✅</span> 10+ Freelancing Platforms</div>
+        <div class="feature-item"><span class="feature-icon">✅</span> BONUS: Quick Start Guide & Pro Tips</div>
+      </div>
+    </section>
+
+    <!-- EARNINGS POTENTIAL SECTION -->
+    <section class="earnings">
+      <div class="earnings-container">
+        <h2 class="text-center">How Much Can You Really Make?</h2>
+        <p class="text-center" style="color: #666">No hype. Just real numbers from real platforms.</p>
+
+        <div class="earnings-list">
+          <div class="earning-row">
+            <span>Surveys & Opinions</span>
+            <span>$50 - $150 / month</span>
+          </div>
+          <div class="earning-row">
+            <span>Research Studies (High Pay)</span>
+            <span>$200 - $500 / month</span>
+          </div>
+          <div class="earning-row">
+            <span>Games & Microtasks</span>
+            <span>$100 - $300 / month</span>
+          </div>
+          <div class="earning-row">
+            <span>Cashback (Shopping)</span>
+            <span>$30 - $100 / month</span>
+          </div>
+          <div class="earning-row">
+            <span>Passive Income Apps</span>
+            <span>$20 - $80 / month</span>
+          </div>
+
+          <div class="earning-total">
+            <span>TOTAL POTENTIAL:</span>
+            <span>$400 - $1,000+ / MONTH</span>
+          </div>
+        </div>
+
+        <p class="text-center" style="font-size: 0.9rem">
+          *Earnings vary by effort and consistency. This guide shows you exactly where to start.
+        </p>
+      </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section class="benefits">
+      <h2 class="section-title">Why Over 10,000+ People Trust Financial Freedom</h2>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <p class="checkmark">✓</p>
+          <h3>100% Free</h3>
+          <p>No hidden costs or fees to join any platform.</p>
+        </div>
+        <div class="benefit-card">
+          <p class="checkmark">✓</p>
+          <h3>Verified Legitimate</h3>
+          <p>We've tested every single platform. No scams.</p>
+        </div>
+        <div class="benefit-card">
+          <p class="checkmark">✓</p>
+          <h3>Easy to Follow</h3>
+          <p>Step-by-step instructions for beginners.</p>
+        </div>
+        <div class="benefit-card">
+          <p class="checkmark">✓</p>
+          <h3>Multiple Payments</h3>
+          <p>Get paid via PayPal, Gift Cards, or Bank Transfer.</p>
+        </div>
+        <div class="benefit-card">
+          <p class="checkmark">✓</p>
+          <h3>Works Worldwide</h3>
+          <p>Platforms available in 100+ countries.</p>
+        </div>
+        <div class="benefit-card">
+          <p class="checkmark">✓</p>
+          <h3>Instant Access</h3>
+          <p>Download your PDF immediately after signup.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+      <h2 class="section-title">Real People, Real Results</h2>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">
+            "I made $687 last month just by following this guide! Specifically the user testing section. Game changer
+            for my finances."
+          </p>
+          <p class="author-name">- Sarah M.</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">
+            "Finally a guide that's actually legit. No scams, just real platforms that pay. I use it every day during my
+            commute."
+          </p>
+          <p class="author-name">- Marcus T.</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">
+            "Started with $0, now making $400+/month consistently. The passive income apps alone pay my phone bill!"
+          </p>
+          <p class="author-name">- Jennifer L.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECOND EMAIL CAPTURE -->
+    <section class="hero" style="background-color: var(--black)">
+      <div class="hero-content">
+        <h2>Ready to Start Earning?</h2>
+        <p style="margin-bottom: 30px">Join 10,000+ earning members today. It's free!</p>
+
+        <div class="cta-box">
+          <!-- MAILERLITE FORM PLACEHOLDER 2 -->
+          <!-- Paste your MailerLite Embed Code Here -->
+          <form action="#" method="POST">
+            <input type="text" class="form-input" placeholder="Your First Name" required />
+            <input type="email" class="form-input" placeholder="Your Best Email Address" required />
+            <button type="submit" class="cta-button">YES! SEND ME THE FREE GUIDE</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">Q: Is this really free?</div>
+        <div class="faq-answer">
+          A: Yes! The guide is 100% free, and all the platforms listed inside are free to join. You never have to pay to
+          work.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Q: How long until I get paid?</div>
+        <div class="faq-answer">
+          A: Most platforms pay within 24-48 hours of reaching the minimum cashout. Some pay instantly!
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Q: Do I need special skills?</div>
+        <div class="faq-answer">
+          A: No! Most platforms are beginner-friendly. If you can browse the internet or play a game, you can do this.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Q: Is this available in my country?</div>
+        <div class="faq-answer">
+          A: Most platforms are available in 100+ countries, including US, UK, Canada, Australia, and many others.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Q: How much time do I need?</div>
+        <div class="faq-answer">
+          A: 30-60 minutes daily can earn you $200-500/month. The more time you invest, the more you can earn.
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-brand">Financial Freedom @financial.freedom996</div>
+      <p>Your trusted source for legitimate online income.</p>
+
+      <div style="margin: 20px 0">
+        <p>Follow us on TikTok for daily money-making tips</p>
+        <!-- Add TikTok Link/Icon Here -->
+      </div>
+
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> <br /><br />
+        &copy; 2026 Financial Freedom. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>
