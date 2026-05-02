@@ -26,7 +26,6 @@
         max-width: 100%;
       }
 
-      /* Override Pico CSS defaults for specific look */
       h1,
       h2,
       h3,
@@ -36,7 +35,6 @@
         font-weight: 800;
       }
 
-      /* Hero Section */
       .hero {
         background-color: var(--black);
         color: var(--white);
@@ -91,9 +89,7 @@
         cursor: pointer;
         text-transform: uppercase;
         margin-top: 15px;
-        transition:
-          transform 0.2s,
-          background-color 0.2s;
+        transition: transform 0.2s, background-color 0.2s;
       }
 
       .cta-button:hover {
@@ -111,7 +107,20 @@
         color: var(--white);
       }
 
-      /* What's Inside Section */
+      .form-message {
+        margin-top: 12px;
+        font-size: 0.95rem;
+        min-height: 24px;
+      }
+
+      .form-message.success {
+        color: #8dffb8;
+      }
+
+      .form-message.error {
+        color: #ff9b9b;
+      }
+
       .features {
         padding: 60px 20px;
         background-color: var(--white);
@@ -144,9 +153,8 @@
         color: var(--primary-dark);
       }
 
-      /* Earnings Potential Section */
       .earnings {
-        background-color: #f0fff8; /* Very light green */
+        background-color: #f0fff8;
         padding: 60px 20px;
         border-top: 5px solid var(--primary);
         border-bottom: 5px solid var(--primary);
@@ -183,7 +191,6 @@
         margin-top: 10px;
       }
 
-      /* Benefits Section */
       .benefits {
         padding: 60px 20px;
         max-width: 1000px;
@@ -209,7 +216,6 @@
         font-size: 1.2rem;
       }
 
-      /* Testimonials */
       .testimonials {
         background-color: #f5f5f5;
         padding: 60px 20px;
@@ -245,7 +251,6 @@
         color: #555;
       }
 
-      /* FAQ Section */
       .faq {
         padding: 60px 20px;
         max-width: 800px;
@@ -265,7 +270,6 @@
         color: var(--black);
       }
 
-      /* Footer */
       footer {
         background-color: var(--black);
         color: var(--white);
@@ -292,28 +296,31 @@
         text-decoration: none;
       }
 
-      /* Utility */
       .text-green {
         color: var(--primary);
       }
+
       .text-center {
         text-align: center;
       }
+
       .mb-2 {
         margin-bottom: 1rem;
       }
 
-      /* Mobile Responsive */
       @media (max-width: 768px) {
         .hero h1 {
           font-size: 2.2rem;
         }
+
         .hero p.subtitle {
           font-size: 1.2rem;
         }
+
         .earnings-container {
           padding: 20px;
         }
+
         .earning-row {
           font-size: 0.9rem;
         }
@@ -331,12 +338,23 @@
         <div class="cta-box">
           <p style="margin-bottom: 15px; font-weight: bold">Where should we send your free PDF?</p>
 
-          <!-- MAILERLITE FORM PLACEHOLDER 1 -->
-          <!-- Paste your MailerLite Embed Code Here -->
-          <form action="#" method="POST">
-            <input type="text" class="form-input" placeholder="Your First Name" required />
-            <input type="email" class="form-input" placeholder="Your Best Email Address" required />
-            <button type="submit" class="cta-button">DOWNLOAD YOUR FREE GUIDE</button>
+          <form class="brevo-signup-form">
+            <input
+              type="text"
+              name="name"
+              class="form-input"
+              placeholder="Your First Name"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              class="form-input"
+              placeholder="Enter your email"
+              required
+            />
+            <button type="submit" class="cta-button">Send Me The Free Guide</button>
+            <p class="form-message" aria-live="polite"></p>
           </form>
 
           <p style="font-size: 0.8rem; color: #888; margin-top: 10px">🔒 100% Secure. We respect your privacy.</p>
@@ -484,41 +502,24 @@
         <p style="margin-bottom: 30px">Join 10,000+ earning members today. It's free!</p>
 
         <div class="cta-box">
-          <script>
-  const form = document.getElementById("signup-form");
-  const message = document.getElementById("form-message");
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    message.textContent = "Submitting...";
-
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-
-    try {
-      const response = await fetch("/.netlify/functions/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name, email })
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        message.textContent = "Thanks! You’ve been subscribed.";
-        form.reset();
-      } else {
-        message.textContent = result.message || "Something went wrong.";
-      }
-    } catch (error) {
-      message.textContent = "Network error. Please try again.";
-    }
-  });
-</script>
-
+          <form class="brevo-signup-form">
+            <input
+              type="text"
+              name="name"
+              class="form-input"
+              placeholder="Your First Name"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              class="form-input"
+              placeholder="Your Best Email Address"
+              required
+            />
+            <button type="submit" class="cta-button">YES! SEND ME THE FREE GUIDE</button>
+            <p class="form-message" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </section>
@@ -571,7 +572,6 @@
 
       <div style="margin: 20px 0">
         <p>Follow us on TikTok for daily money-making tips</p>
-        <!-- Add TikTok Link/Icon Here -->
       </div>
 
       <div class="footer-links">
@@ -579,5 +579,57 @@
         &copy; 2026 Financial Freedom. All rights reserved.
       </div>
     </footer>
+
+    <script>
+      const forms = document.querySelectorAll(".brevo-signup-form");
+
+      forms.forEach((form) => {
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const name = form.querySelector('input[name="name"]').value.trim();
+          const email = form.querySelector('input[name="email"]').value.trim();
+          const message = form.querySelector(".form-message");
+          const button = form.querySelector('button[type="submit"]');
+          const originalButtonText = button.textContent;
+
+          message.textContent = "Submitting...";
+          message.className = "form-message";
+          button.disabled = true;
+          button.textContent = "Submitting...";
+
+          try {
+            const response = await fetch("/.netlify/functions/subscribe", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({ name, email })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+              message.textContent = data.message || "Success! Check your email for the next step.";
+              message.className = "form-message success";
+              form.reset();
+
+              // Optional redirect after successful signup:
+              // window.location.href = "/thank-you.html";
+            } else {
+              message.textContent = data.message || "Something went wrong. Please try again.";
+              message.className = "form-message error";
+            }
+          } catch (error) {
+            message.textContent = "Network error. Please try again.";
+            message.className = "form-message error";
+          } finally {
+            button.disabled = false;
+            button.textContent = originalButtonText;
+          }
+        });
+      });
+    </script>
   </body>
 </html>
+
