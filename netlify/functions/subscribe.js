@@ -60,7 +60,7 @@ exports.handler = async (event) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        message: "great!your pdf is on the way,check your email🙂 ",
+        message: "great! your pdf is on the way,check your email 🙂 ",
         data,
       }),
     };
@@ -71,7 +71,7 @@ exports.handler = async (event) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        message: "Server error.",
+        message: "Email already existing.",
         error: error.message,
       }),
     };
