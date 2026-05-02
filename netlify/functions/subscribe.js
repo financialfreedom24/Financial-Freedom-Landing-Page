@@ -48,7 +48,7 @@ exports.handler = async (event) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          message: data.message || "Failed to subscribe contact.",
+          message: data.message || "Failed to send you the pdf.",
           details: data,
         }),
       };
@@ -60,7 +60,7 @@ exports.handler = async (event) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        message: "Successfully subscribed!",
+        message: "great!your pdf is on the way,check your email🙂 ",
         data,
       }),
     };
